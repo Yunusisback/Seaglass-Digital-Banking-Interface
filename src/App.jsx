@@ -51,7 +51,7 @@ function App() {
         </div>
       </div>
 
-      {/* Sağ kolon kartlar ve detaylar */}
+      {/*  kartlar ve detaylar */}
       <aside className="w-95 flex flex-col gap-6 overflow-y-auto pr-4 custom-scrollbar">
 
         {/* Başlık */}

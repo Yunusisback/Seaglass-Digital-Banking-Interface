@@ -26,12 +26,13 @@ function Sidebar() {
         {navItems.map((item, i) => (
           <div key={i} className="relative group flex justify-center cursor-pointer">
 
-            {/* Hover parlama efekti */}
+            
             <div className="absolute inset-0 bg-yellow-400/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <item.icon
               size={23}
               className="text-gray-500 group-hover:text-yellow-400 transition-all duration-300 transform group-hover:scale-110 relative z-10"
             />
+            
             {/* Aktif gösterge çubuğu */}
             {item.active && <div className="absolute -right-4 w-1 h-6 bg-yellow-400 rounded-l-full" />}
           </div>

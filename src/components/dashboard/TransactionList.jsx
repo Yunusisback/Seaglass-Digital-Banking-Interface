@@ -51,7 +51,7 @@ function TransactionList({ transactions }) {
                 </div>
               </div>
 
-              {/*  Tutar */}
+              {/* Tutar */}
               <span className={`text-sm font-bold tracking-tight ${tx.type === 'income' ? 'text-green-400' : 'text-white'}`}>
                 {tx.type === 'income' ? '+' : '-'}${tx.amount}
               </span>
