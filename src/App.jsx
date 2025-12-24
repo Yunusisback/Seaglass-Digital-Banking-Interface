@@ -24,7 +24,7 @@ function App() {
           scale: 1.00,
           color1: 0x0e9393,
           color2: 0x35f2e4,
-          speed: 1.30
+          speed: 0.80,
         })
       )
     }
