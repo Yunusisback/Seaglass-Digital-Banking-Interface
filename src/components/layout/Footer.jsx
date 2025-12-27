@@ -1,18 +1,21 @@
 import { Instagram, Twitter, Facebook, Linkedin } from 'lucide-react';
 import { socialLinks } from '../../utils/constants';
 
-
 const IconMap = { Instagram, Twitter, Facebook, Linkedin };
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-white/10 bg-black/40 backdrop-blur-xl pt-16 pb-8 px-6 mt-20 md:mt-32">
-      <div className="max-w-7xl mx-auto">
+    <footer className="relative border-t border-white/10 bg-black/40 backdrop-blur-xl pt-16 pb-8 mt-20 md:mt-32">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
           {/* Logo ve hakkında  */}
           <div className="space-y-6 text-center md:text-left">
-            <h3 className="text-2xl font-black italic tracking-tighter text-white">SeaGlass</h3>
+            <img 
+              src="/seaglogo.png" 
+              alt="SeaGlass Logo" 
+              className="h-16 md:h-20 w-auto object-contain mx-auto md:mx-0 md:-ml-14"
+            />
             <p className="text-white/40 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
               SeaGlass ile geleceğin dijital bankacılık deneyimi. Para sorunu olmadan, indirimlerle unutulmaz tatiller sizin olsun!
             </p>

@@ -14,7 +14,7 @@ function Sponsors() {
   ];
 
   return (
-    <div className="w-full px-4 sm:px-6 py-6 sm:py-8">
+    <div className="w-full">
       <div className="max-w-7xl mx-auto">
         <div className="bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-4 sm:py-6 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
         
@@ -33,25 +33,25 @@ function Sponsors() {
                 key={index}
                 onTouchStart={() => setTouchedIndex(index)}
                 onTouchEnd={() => setTimeout(() => setTouchedIndex(null), 200)}
-                className={`flex flex-col items-center justify-center gap-1.5 sm:gap-2 p-3 sm:p-4 rounded-lg sm:rounded-xl bg-white/5 border border-white/10 transition-all cursor-pointer active:scale-95 ${
+                className={`flex flex-col items-center justify-center gap-2 sm:gap-3 p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white/10 border-2 border-white/20 backdrop-blur-md transition-all cursor-pointer active:scale-95 shadow-lg ${
                   touchedIndex === index 
-                    ? 'bg-white/10 border-white/30' 
-                    : 'md:hover:bg-white/10 md:hover:border-white/30'
+                    ? 'bg-white/20 border-cyan-400/60 shadow-[0_0_20px_rgba(34,211,238,0.4)]' 
+                    : 'md:hover:bg-white/20 md:hover:border-cyan-400/60 md:hover:shadow-[0_0_20px_rgba(34,211,238,0.4)]'
                 }`}
               >
                 <sponsor.icon 
-                  size={28} 
-                  className={`transition-colors sm:w-8 sm:h-8 ${
+                  size={32} 
+                  className={`transition-colors sm:w-10 sm:h-10 ${
                     touchedIndex === index 
-                      ? 'text-cyan-300' 
+                      ? 'text-cyan-300 drop-shadow-[0_0_10px_rgba(34,211,238,0.8)]' 
                       : 'text-cyan-400 md:group-hover:text-cyan-300'
                   }`}
-                  strokeWidth={1.5}
+                  strokeWidth={2}
                 />
-                <span className={`text-[9px] sm:text-[10px] font-bold uppercase tracking-wider transition-colors text-center ${
+                <span className={`text-[10px] sm:text-xs font-black uppercase tracking-wider transition-colors text-center ${
                   touchedIndex === index 
-                    ? 'text-white/80' 
-                    : 'text-white/60 md:group-hover:text-white/80'
+                    ? 'text-white' 
+                    : 'text-white/80 md:group-hover:text-white'
                 }`}>
                   {sponsor.name}
                 </span>
@@ -61,7 +61,7 @@ function Sponsors() {
 
           <div className="mt-4 sm:mt-6 text-center">
             <p className="text-[9px] sm:text-[10px] text-white/40">
-              © 2025 SeaGlass Premium. Tüm hakları saklıdır.
+              © 2025 SeaGlass. Tüm hakları saklıdır.
             </p>
           </div>
         </div>

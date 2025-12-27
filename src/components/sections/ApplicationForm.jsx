@@ -51,6 +51,7 @@ export default function ApplicationForm() {
       )}
 
       <GlassCard className="w-full max-w-5xl p-4 sm:p-6 md:p-8 border-white/30 bg-black/60 backdrop-blur-3xl shadow-[0_25px_60px_rgba(0,0,0,0.7)] relative z-50">
+      
         {/* Header */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 border-b border-white/20 pb-4 gap-4">
           <div className="flex items-center gap-3">
@@ -67,9 +68,6 @@ export default function ApplicationForm() {
             </div>
           </div>
           <div className="w-full sm:w-auto">
-            <span className="text-[9px] sm:text-[10px] text-white font-black tracking-widest uppercase border-2 border-cyan-400/30 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-cyan-400/10 inline-block">
-              SeaGlass Özel
-            </span>
           </div>
         </div>
 
