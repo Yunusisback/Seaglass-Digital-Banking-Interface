@@ -1,103 +1,83 @@
 import { Waves, Hotel, UtensilsCrossed, Plane, Sailboat, Crown } from 'lucide-react';
+import { motion } from 'framer-motion';
+
 
 const benefits = [
-  {
-    icon: 'Hotel',
-    title: 'Otel Konaklamaları',
-    description: 'Dünya çapında lüks otellerde özel indirimler ve ücretsiz oda yükseltmeleri'
-  },
-  {
-    icon: 'Waves',
-    title: 'Plaj Kulüpleri',
-    description: 'Seçili plaj kulüplerinde VIP erişim ve özel hizmetler'
-  },
-  {
-    icon: 'UtensilsCrossed',
-    title: 'Restoran İndirimleri',
-    description: 'Premium restoranlarda %30\'a varan indirimler ve öncelikli rezervasyon'
-  },
-  {
-    icon: 'Plane',
-    title: 'Havayolu Avantajları',
-    description: 'Lounge erişimi ve bilet rezervasyonlarında özel fiyatlar'
-  },
-  {
-    icon: 'Sailboat',
-    title: 'Yat Turları',
-    description: 'Özel yat turlarında indirimler ve VIP deneyimler'
-  },
-  {
-    icon: 'Crown',
-    title: 'VIP Etkinlikler',
-    description: 'Özel etkinliklere davetler ve premium deneyimler'
-  }
+  { icon: Hotel, title: 'Otel Konaklamaları', description: 'Dünya çapında lüks otellerde özel indirimler ve ücretsiz oda yükseltmeleri.' },
+  { icon: Waves, title: 'Plaj Kulüpleri', description: 'Seçili plaj kulüplerinde VIP erişim ve özel hizmetler.' },
+  { icon: UtensilsCrossed, title: 'Restoran İndirimleri', description: 'Premium restoranlarda %30\'a varan indirimler ve öncelikli rezervasyon.' },
+  { icon: Plane, title: 'Havayolu Avantajları', description: 'Lounge erişimi ve bilet rezervasyonlarında özel fiyatlar.' },
+  { icon: Sailboat, title: 'Yat Turları', description: 'Özel yat turlarında indirimler ve VIP deneyimler.' },
+  { icon: Crown, title: 'VIP Etkinlikler', description: 'Özel etkinliklere davetler ve premium deneyimler.' }
 ];
-
-const IconMap = { Hotel, Waves, UtensilsCrossed, Plane, Sailboat, Crown };
 
 export default function Benefits() {
   return (
-    <section className="px-4 py-16 sm:py-24">
+    <section className="relative px-6 py-24 overflow-hidden" id="benefits">
       <div className="max-w-7xl mx-auto">
         
-        {/* Başlık */}
-        <div className="text-center mb-16 sm:mb-20">
-          <div className="inline-block mb-4 px-6 py-2 rounded-full bg-linear-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 backdrop-blur-xl">
-            <p className="text-cyan-400 font-black tracking-[0.25em] text-[10px] sm:text-xs uppercase">SeaGlass Özel Avantajlar</p>
-          </div>
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 bg-linear-to-r from-white via-cyan-100 to-white bg-clip-text text-transparent leading-tight">
-            Ayrıcalıklar Dünyası
+        {/* Başlık Grubu:*/}
+        <div className="max-w-3xl mb-20">
+          <motion.p 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="text-cyan-400 font-black tracking-[0.3em] text-[10px] uppercase mb-4"
+          >
+            Ayrıcalıklar
+          </motion.p>
+          <h2 className="text-4xl md:text-6xl font-black text-white italic tracking-tighter leading-[0.9]">
+            Hayatınızı <br /> 
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-blue-500">
+              Lüksle Donatın
+            </span>
           </h2>
-          <p className="text-white/60 text-sm sm:text-base max-w-2xl mx-auto">
-            Premium kartınızla hayatınızı lüks ve konforla doldurun
-          </p>
+          <div className="w-20 h-1 bg-cyan-500 mt-8 rounded-full" />
         </div>
 
-        {/* Avantajlar  */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-          {benefits.map((benefit, index) => {
-            const IconComp = IconMap[benefit.icon] || Waves;
-            return (
-              <div 
-                key={index} 
-                className="group relative p-6 sm:p-8 rounded-3xl bg-white/5 backdrop-blur-2xl border border-white/20 hover:border-cyan-400/60 transition-all duration-500 overflow-hidden hover:scale-[1.02] hover:shadow-[0_20px_60px_rgba(6,182,212,0.3)]"
-              >
-                {/*  Katman */}
-                <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl"></div>
-                
-                {/* Işıltı Efekti */}
-                <div className="absolute -inset-px bg-linear-to-r from-cyan-500/0 via-cyan-500/50 to-cyan-500/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-                
-                <div className="relative z-10">
-
-                  {/* İkon Kutusu */}
-                  <div className="relative w-16 h-16 sm:w-18 sm:h-18 mb-6 group-hover:scale-110 transition-transform duration-500">
-                    <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-cyan-500/20 to-blue-600/20 backdrop-blur-xl border border-cyan-400/30 group-hover:border-cyan-400/60 transition-all duration-500"></div>
-                    <div className="absolute inset-0 bg-linear-to-br from-cyan-400/10 to-transparent rounded-2xl"></div>
-                    <div className="relative w-full h-full flex items-center justify-center">
-                      <IconComp 
-                        className="text-cyan-400 group-hover:text-cyan-300 transition-colors duration-500 drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]" 
-                        size={28} 
-                      />
-                    </div>
-                  </div>
-
-                  {/* İçerik */}
-                  <h3 className="text-xl sm:text-2xl font-black mb-3 text-white group-hover:text-cyan-50 transition-colors duration-300">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-white/60 group-hover:text-white/80 text-sm sm:text-base leading-relaxed transition-colors duration-300">
-                    {benefit.description}
-                  </p>
-
-                  {/* Alt  Çizgi */}
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-cyan-400/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                </div>
-              </div>
-            );
-          })}
+        {/* Avantajlar Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <BenefitCard key={index} benefit={benefit} index={index} />
+          ))}
         </div>
       </div>
     </section>
   );
 }
+
+
+const BenefitCard = ({ benefit, index }) => {
+  const Icon = benefit.icon;
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1 }}
+      viewport={{ once: true }}
+      className="group relative cursor-default h-full"
+    >
+      {/* Kart Gövdesi*/}
+      <div className="h-full p-8 rounded-[2.5rem] bg-white/3 border border-white/10 backdrop-blur-md transition-all duration-500 group-hover:bg-white/[0.07] group-hover:border-cyan-500/40 group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)]">
+        
+        {/* İkon*/}
+        <div className="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-8 border border-cyan-500/20 group-hover:scale-110 group-hover:bg-cyan-500 group-hover:text-black transition-all duration-500 text-cyan-400">
+          <Icon size={28} strokeWidth={1.5} />
+        </div>
+
+        {/* İçerik */}
+        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+          {benefit.title}
+        </h3>
+        <p className="text-white/40 text-sm leading-relaxed font-light group-hover:text-white/70 transition-colors">
+          {benefit.description}
+        </p>
+
+        {/* Sadece hoverda çıkan ince çizgi */}
+        <div className="absolute top-8 right-8 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+        </div>
+      </div>
+    </motion.div>
+  );
+};

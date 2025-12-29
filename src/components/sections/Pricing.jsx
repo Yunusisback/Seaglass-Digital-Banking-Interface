@@ -1,108 +1,94 @@
 import { CheckCircle2 } from 'lucide-react';
 import { cardTiers } from '../../utils/constants';
-import { useState } from 'react';
 
 export default function Pricing() {
-  const [active, setActive] = useState(null);
-
   return (
-    <section className="pb-16 sm:pb-24 px-4">
-      
-      {/* Başlık */}
-      <header className="text-center mb-14 sm:mb-20">
-        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-white">
-          Size Özel Paketler
-        </h2>
-        <p className="mt-3 text-sm text-white/60">
-          Bankacılık ihtiyaçlarınıza uygun şeffaf fiyatlandırma
-        </p>
-      </header>
+    <section className="relative py-24 px-6 overflow-hidden">
 
-      {/* Kartlar */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10 max-w-7xl mx-auto">
-        {cardTiers.map((tier, index) => {
-          const isActive = active === index;
+      {/* Arka Plan Süsü */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-cyan-500/5 blur-[120px] pointer-events-none rounded-full" />
 
-          return (
+      <div className="max-w-7xl mx-auto relative z-10">
+        
+        {/* Başlık */}
+        <header className="text-center mb-20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-400/20 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Şeffaf Avantajlar</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter mb-4">
+            Size Özel <span className="text-white/40 font-light">Üyelik Paketleri</span>
+          </h2>
+          <p className="text-white/50 text-sm max-w-md mx-auto font-medium">
+            Sınır tanımayan bankacılık deneyimi için ihtiyacınıza uygun kristal netliğinde paketler.
+          </p>
+        </header>
+
+        {/* Kartlar Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          {cardTiers.map((tier, index) => (
             <article
               key={index}
-              onMouseEnter={() => setActive(index)}
-              onMouseLeave={() => setActive(null)}
-              onTouchStart={() => setActive(index)}
-              onTouchEnd={() => setTimeout(() => setActive(null), 150)}
               className={`
-                relative rounded-3xl p-8 sm:p-10
-                backdrop-blur-2xl border
-                transition-all duration-300
-                ${
-                  tier.popular
-                    ? "bg-white/15 border-white/40 shadow-[0_30px_80px_rgba(0,0,0,0.4)] md:scale-105"
-                    : "bg-white/8 border-white/20 hover:border-white/30 hover:bg-white/12"
+                group relative rounded-[2.5rem] p-10 
+                backdrop-blur-md border transition-all duration-300
+                ${tier.popular 
+                  ? "bg-cyan-500/10 border-cyan-400/40 shadow-xl z-20 md:scale-105" 
+                  : "bg-white/3 border-white/10 hover:border-white/25 z-10"
                 }
-                ${isActive ? "-translate-y-2" : ""}
               `}
             >
-              {/* Rozet */}
+              {/* Popüler rozeti */}
               {tier.popular && (
-                <span className="
-                  absolute -top-4 left-1/2 -translate-x-1/2
-                  rounded-full px-5 py-1
-                  text-[10px] font-semibold uppercase tracking-widest
-                  bg-white text-black shadow-md
-                ">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-400 text-black text-[9px] font-black uppercase tracking-[0.2em] px-6 py-1.5 rounded-full">
                   En Popüler
-                </span>
+                </div>
               )}
 
-              {/* Başlık */}
-              <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-1">
-                {tier.name}
-              </h3>
-
-              {/* Fiyat */}
-              <div className="text-lg sm:text-xl font-medium text-white/90 mb-8">
-                {tier.price}
+              {/* Başlık ve Fiyat */}
+              <div className="mb-8 border-b border-white/10 pb-8">
+                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-cyan-400 mb-2">
+                  {tier.name}
+                </h3>
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-black text-white italic">{tier.price}</span>
+                  {tier.price !== "Ücretsiz" && <span className="text-white/30 text-xs uppercase font-bold tracking-widest">/ay</span>}
+                </div>
               </div>
 
               {/* Özellikler */}
-              <ul className="space-y-4 mb-10">
+              <ul className="space-y-5 mb-10">
                 {tier.features.map((feat, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-white/85">
+                  <li key={i} className="flex items-start gap-3 group/item">
                     <CheckCircle2
-                      size={18}
-                      className="text-white/70 shrink-0"
+                      size={16}
+                      className={`mt-0.5 shrink-0 transition-colors ${tier.popular ? "text-cyan-400" : "text-white/30 group-hover:text-white"}`}
                     />
-                    <span>{feat}</span>
+                    <span className="text-[13px] text-white/70 leading-tight font-medium">
+                      {feat}
+                    </span>
                   </li>
                 ))}
               </ul>
 
-              {/* Buton */}
+              {/* Aksiyon Butonu */}
               <button
                 className={`
-                  w-full rounded-2xl py-3.5
-                  text-xs font-semibold uppercase tracking-wider
-                  transition-all duration-300
-                  focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
-                  ${
-                    tier.popular
-                      ? "bg-white text-black hover:bg-white/90"
-                      : "bg-white/10 text-white border border-white/20 hover:bg-white hover:text-black"
+                  w-full rounded-2xl py-4 text-[10px] font-black uppercase tracking-[0.2em] transition-all duration-200 cursor-pointer
+                  ${tier.popular 
+                    ? "bg-cyan-400 text-black hover:bg-white" 
+                    : "bg-white/5 text-white border border-white/10 hover:bg-white hover:text-black"
                   }
                 `}
               >
                 Paketi Seç
               </button>
 
-              {/* Işık yansıması */}
-              <span className="
-                pointer-events-none absolute inset-0 rounded-3xl
-                bg-linear-to-br from-white/20 to-transparent
-                opacity-0 hover:opacity-100 transition-opacity
-              " />
+             
+              <div className="absolute inset-0 rounded-[2.5rem] bg-linear-to-br from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </article>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </section>
   );
