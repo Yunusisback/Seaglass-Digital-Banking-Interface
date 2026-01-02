@@ -40,6 +40,7 @@ export const benefits = [
 ];
 
 // Tatil yerleri
+
 export const destinations = [
   {
     name: "Maldivler",

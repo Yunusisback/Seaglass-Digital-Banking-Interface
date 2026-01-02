@@ -34,8 +34,16 @@ export default function ApplicationForm() {
     const { name, value } = e.target;
     let finalValue = value;
 
-    if (name === "tcNo") {
-      finalValue = value.replace(/\D/g, "").slice(0, 11);
+    // T.C. No ve Telefon için sadece rakam izni ve uzunluk sınırı
+    if (name === "tcNo" || name === "phone") {
+      finalValue = value.replace(/\D/g, ""); 
+      
+      if (name === "tcNo") {
+        finalValue = finalValue.slice(0, 11);
+      }
+      if (name === "phone") {
+        finalValue = finalValue.slice(0, 11); 
+      }
     }
     
     setFormData(prev => ({ ...prev, [name]: finalValue }));
@@ -143,6 +151,8 @@ export default function ApplicationForm() {
 const InputField = memo(({ label, name, value, icon, onChange, type = "text" }) => {
   const [isFocused, setIsFocused] = useState(false);
 
+ 
+  const isNumeric = name === "tcNo" || name === "phone";
 
   const labelClasses = `absolute left-3 transition-all duration-300 pointer-events-none z-20 ${
     isFocused || value
@@ -158,6 +168,7 @@ const InputField = memo(({ label, name, value, icon, onChange, type = "text" }) 
           type={type}
           name={name}
           value={value}
+          inputMode={isNumeric ? "numeric" : "text"}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           className="w-full pl-4 pr-10 py-3.5 bg-white/5 border border-white/10 rounded-xl text-white focus:bg-black/20 focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/20 transition-all font-medium"

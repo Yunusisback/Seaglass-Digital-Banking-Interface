@@ -25,16 +25,16 @@ export default function Sponsors() {
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400">Kurumsal Ekosistem</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter">
-              Premium <span className="text-white/40 font-light">Partnerlerimiz</span>
+              Premium <span className="text-white/60 font-light">Partnerlerimiz</span>
             </h2>
           </div>
-          <p className="text-white/70 text-sm max-w-70 font-medium leading-relaxed">
+          <p className="text-white/80 text-sm max-w-70 font-medium leading-relaxed">
             Dünya genelinde 500+ lüks marka ile SeaGlass kullanıcılarına özel %40'a varan geri ödeme.
           </p>
         </div>
 
         {/* Sponsor Grid  */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-white/20 rounded-[2.5rem] overflow-hidden backdrop-blur-md">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-cyan-300 rounded-[2.5rem] overflow-hidden backdrop-blur-md">
           {sponsors.map((item, index) => (
             <div
               key={index}
@@ -49,9 +49,9 @@ export default function Sponsors() {
               {/* İkon */}
               <div className="relative z-10">
                 <item.icon 
-                  size={32} 
+                  size={35} 
                   strokeWidth={1.5} 
-                  className="text-white/60 group-hover:text-white group-hover:scale-110 transition-transform duration-300" 
+                  className="text-white/80 group-hover:text-white group-hover:scale-110 transition-transform duration-300" 
                 />
               </div>
 

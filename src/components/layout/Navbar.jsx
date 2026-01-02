@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { User, Menu, X, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,7 +8,6 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-   
       const isScrolled = window.scrollY > 10;
       setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
     };
@@ -57,7 +56,7 @@ function Navbar() {
                   className="relative text-[10px] font-black uppercase tracking-widest text-cyan-50/80 hover:text-white transition-all duration-300 group"
                 >
                   {item.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full shadow-[0_0_8px_cyan]" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-cyan-400 transition-all group-hover:w-full shadow-[0_0_8px_#00ffff]" />
                 </a>
               ))}
             </div>
@@ -69,20 +68,20 @@ function Navbar() {
                 <span>Giriş Yap</span>
               </button>
 
-              <button className="relative group overflow-hidden px-4 md:px-7 py-2.5 md:py-3.5 bg-white rounded-full transition-all active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)] shrink-0 cursor-pointer">
-
+              <button className="relative group overflow-hidden px-6 md:px-7 py-2.5 md:py-3.5 bg-white/10 md:bg-white rounded-full border border-white/20 md:border-0 transition-all active:scale-95 shadow-lg md:shadow-[0_0_20px_rgba(255,255,255,0.2)] shrink-0 cursor-pointer">
+                {/* Hover Gradient Overlay */}
                 <div className="absolute inset-0 bg-linear-to-br from-cyan-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
 
-                <span className="relative z-10 flex items-center gap-2 text-cyan-950 group-hover:text-white text-[10px] md:text-[11px] font-black uppercase tracking-widest transition-colors duration-300">
-                  
-                  <span className="leading-tight">Müşteri<br className="sm:hidden" /> Ol</span>
-                  <ChevronRight size={14} className="hidden sm:block" />
+                <span className="relative z-10 flex items-center gap-1.5 text-white md:text-cyan-950 md:group-hover:text-white text-[9px] md:text-[11px] font-black uppercase tracking-widest transition-colors duration-300">
+                  <span className="leading-tight">Müşteri Ol</span>
+                  <ChevronRight size={12} className="hidden md:block" />
                 </span>
               </button>
 
+              {/* Mobil Menü Toggle */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden w-10 h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 active:bg-cyan-500/20 transition-all cursor-pointer"
+                className="lg:hidden w-10 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 active:bg-cyan-500/20 transition-all cursor-pointer"
               >
                 {isMobileMenuOpen ? <X size={18} className="text-white" /> : <Menu size={18} className="text-white" />}
               </button>
